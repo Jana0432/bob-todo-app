@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Lab 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Todo Application</h1>
+            <p class="subtitle">Manage your tasks efficiently</p>
+        </header>
+
+        <main>
+            <!-- Add Todo Form -->
+            <section class="add-todo-section">
+                <h2>Add New Todo</h2>
+                <form id="todoForm">
+                    <div class="form-group">
+                        <label for="todoTitle">Title *</label>
+                        <input 
+                            type="text" 
+                            id="todoTitle" 
+                            name="title" 
+                            placeholder="Enter todo title" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="todoDescription">Description</label>
+                        <textarea 
+                            id="todoDescription" 
+                            name="description" 
+                            placeholder="Enter todo description (optional)"
+                            rows="3"
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>➕</span> Add Todo
+                    </button>
+                </form>
+            </section>
+
+            <!-- Todo List -->
+            <section class="todo-list-section">
+                <div class="list-header">
+                    <h2>Your Todos</h2>
+                    <span id="todoCount" class="todo-count">0 tasks</span>
+                </div>
+                <div id="todoList" class="todo-list">
+                    <!-- Todos will be dynamically inserted here -->
+                </div>
+                <div id="emptyState" class="empty-state">
+                    <p>🎉 No todos yet! Add one to get started.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Lab 1 - Full Stack Todo Application</p>
+        </footer>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Todo</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="editTodoId">
+                <div class="form-group">
+                    <label for="editTodoTitle">Title *</label>
+                    <input 
+                        type="text" 
+                        id="editTodoTitle" 
+                        name="title" 
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="editTodoDescription">Description</label>
+                    <textarea 
+                        id="editTodoDescription" 
+                        name="description" 
+                        rows="3"
+                    ></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            id="editTodoCompleted" 
+                            name="completed"
+                        >
+                        <span>Mark as completed</span>
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
